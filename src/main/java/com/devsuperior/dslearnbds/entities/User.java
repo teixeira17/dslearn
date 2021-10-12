@@ -35,7 +35,7 @@ public class User implements Serializable {
 
 	@OneToMany(mappedBy = "user")
 	private List<Notification> notifications = new ArrayList<>();
-	
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "tb_user_offer", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "offer_id"))
 	private Set<Offer> offers = new HashSet<>();
@@ -88,10 +88,6 @@ public class User implements Serializable {
 
 	public Set<Role> getRoles() {
 		return roles;
-	}
-
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
 	}
 
 	public List<Notification> getNotifications() {
